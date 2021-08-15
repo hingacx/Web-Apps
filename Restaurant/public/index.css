@@ -1,0 +1,50 @@
+:root{--colorLightest: #f0e3ca;
+    --colorMedlight: #ff8303;
+    --colorMedDark: #a35709;
+    --colorDarkest: #1b1a17;
+    --mainFont: "Helvetica"}
+
+
+h1 {
+    text-align: center;
+    font-family: var(--mainFont);
+	color: var(--colorDarkest);
+}
+
+h3 {
+    text-align: center;
+    font-family: var(--mainFont);
+	color: var(--colorDarkest);
+}
+.menubar{
+	display: block;
+	margin: auto;
+	width: 20%;
+	border: solid;
+    border-color: var(--colorDarkest);
+    border-radius: 15px;
+}
+.inner{
+	display: flex;
+	justify-content: center;
+	
+}
+button{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--colorMedlight);
+    background-color: var(--colorDarkest);
+    font-size: 150%;
+	width: 95%;
+}
+body{
+	background-image: url(restaurant2.jpg);
+	background-size: cover;
+}
+
+
+#workflow {
+	margin-top: 2%;
+	margin-left: 40%;
+}

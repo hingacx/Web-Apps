@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html id="otherHTML">
+
+<head>
+	<meta charset="utf-8"/>
+	<title>Rewards</title>
+	<link rel="stylesheet" type="text/css" href= "rewards.css" />
+</head>
+<body>
+    <section id='upperblock'>
+	<h1>Interactions with Rewards Here</h1>
+        <p class='headingPara'>Create, Read, Update and Delete Rewards</p>
+        <div class='nav'>
+            <p class='navPara'>Navigation</p>
+            <div id='buttonholder'>
+                <form>
+                <button type='submit' id='homeButton' formaction='/'>Home</button>
+                <button type="submit" id="customersButton" formaction='/customers'>Customers</button>
+                <button type="submit" id="rewardsButton" formaction='/rewards'>Rewards</button>
+                <button type="submit" id="ordersButton" formaction='/orders'>Orders</button>
+                <button type="submit" id="billsButton" formaction='/bills'>Bills</button>
+                <button type="submit" id="itemsButton" formaction='/items'>Items</button>
+                </form>
+            </div>
+        </div>
+    </section><br>
+
+    <!--Add a Reward-->
+    <section id='middleblock'>
+    <p class='para'></p>
+    <form action='/rewards' method='POST'>
+        <fieldset class='fields'>
+        <legend>Create a Reward Entry: </legend>
+            <table class='tbl'>
+                <tr>
+                    <th></th>
+                    <th>Reward Name</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td><input type='text' name='reward_name' size='30' maxlength='100' class='textfields' required></td>
+                    <td><input type='text' name='description' size='30' maxlength='100' class='textfields' required></td>
+                    <td><input type='submit' id='addReward' class='submitButton'></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+
+    <!-- Update a Reward -->
+    <form>
+        <fieldset class='fields'>
+        <legend>Update a Reward's Description:</legend>
+            <table class='tbl'>
+                <tr>
+                    <th></th>
+                    <th>Reward</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td><select name='reward_ID' id='updatereward_ID' required>
+                    {{#each list}}
+                    <option value='{{this.reward_ID}}'>{{this.reward_name}}</option>
+                    {{/each}}
+                    </select></td>
+                    <td><input type='text' name='description' id='updateDescription' size='30' maxlength='100' class='textfields' required></td>
+                    <td><input type='submit' id='updateReward' class='submitButton'></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+
+    <!-- Delete a Reward -->
+    <form>
+        <fieldset class='fields'>
+        <legend>Delete a Reward:</legend>
+            <table class='tbl'>
+                <tr>
+                    <th></th>
+                    <th>Reward</th>
+                </tr>
+                <tr>
+                    <th></td>
+                    <td><select name='reward_ID' id='deletereward_ID' required>
+                    {{#each list}}
+                    <option value='{{this.reward_ID}}'>{{this.reward_name}}</option>
+                    {{/each}}
+                    <td><input type='submit' id='deleteReward' class='submitButton'></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form><br>
+    </section>
+    
+
+    <!-- Show curent Rewards -->
+    <section id='bottomblock'>
+        <form >
+            <fieldset class='fields'>
+            <legend>Current Rewards are Displayed Here:</legend>
+                <table class='tbl'>
+                    <tr>
+                        <th>Reward</th>
+                        <th>Description</th>
+                    </tr>
+                    <tbody id='show'>
+                    {{#each list}}
+                    <tr>
+                        <td>{{this.reward_name}}</td>
+                        <td>{{this.description}}</td>
+                    </tr>
+                    {{/each}}
+                </table>
+                <!-- <input type='submit' id='showReward' value='Display Rewards' class='submitButton' formaction='/showrewards'> -->
+            </fieldset>
+        </form><br>
+    </section>
+
+<script src="rewards.js"></script>    
+</body>
+</html>

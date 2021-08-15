@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="bills.css">
+        <title>ItemBills Landing Page</title>
+    </head>
+
+    <body>
+        <section id='upperblock'>
+        <h1>Interaction with ItemBills Here</h1>
+        <p class='headingPara'>Create, Read and Delete ItemBills</p>
+        <p class='headingPara'>Update Bills at the Bottom of the Page</p>
+            <div class='nav'>
+                <p class='navPara'>Navigation</p>
+                <div id='buttonholder'>
+                    <form>
+                        <button type='submit' id='homeButton' formaction='/'>Home</button>
+                        <button type="submit" id="customersButton" formaction='/customers'>Customers</button>
+                        <button type="submit" id="rewardsButton" formaction='/rewards'>Rewards</button>
+                        <button type="submit" id="ordersButton" formaction='/orders'>Orders</button>
+                        <button type="submit" id="billsButton" formaction='/bills'>Bills</button>
+                        <button type="submit" id="itemsButton" formaction='/items'>Items</button>
+                    </form>
+                </div>
+            </div>
+        </section><br>
+
+
+        <!--Add ItemBills-->
+        <section id='middleblock'>
+        <p class='para'></p>
+        <form action='/itembills' method='POST'>
+            <fieldset class='fields'>
+            <legend>Create an Instance of ItemBills:</legend>
+                <table class='tbl'>
+                    <tr>
+                        <th></th>
+                        <th>Item</th>
+                        <th>Bill</th>
+                        <th>Quantity</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><select name='item_ID' id='theItem' required>
+                            {{#each list}}
+                            <option value='{{this.item_ID}}'>{{this.name}}</option>
+                            {{/each}}
+                          </select></td>
+                        <td><select name='bill_ID' id='theBill' required>
+                            {{#each array}}
+                            <option value='{{this.bill_ID}}'>{{this.bill_ID}}</option>
+                            {{/each}}
+                          </select></td>
+                        <td><input type='number' name='quantity' min='1' step='1' value='1' class='textfields' required></td>
+                        <td><input type='submit' id='addItemBills' class='submitButton'></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+
+
+        <!--Delete ItemBills-->
+        <form>
+            <fieldset class='fields'>
+            <legend>Delete an Instance of ItemBills:</legend>
+                <table class='tbl'>
+                    <tr>
+                        <th></th>
+                        <th>ItemBill</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><select name='ib_ID' id='deleteItemBills_ID' required>
+                            {{#each stuff}}
+                            <option value='{{this.ib_ID}}'>{{this.ib_ID}}</option>
+                            {{/each}}
+                          </select></td>
+                        <td><input type='submit' id='deleteItemBills' class='submitButton'></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+
+
+        <form>
+            <fieldset class='fields'>
+                <button type="submit" formaction='/bills'>Back to Bills</button>
+            </fieldset>
+        </form>
+        </section>
+
+
+        <!-- Show current ItemBills -->
+        <section id='bottomblock'>
+            <form>
+                <fieldset class='fields'>
+                <legend>Current ItemBill Instances are Displayed Here:</legend>
+                    <table class='tbl'>
+                        <tr>
+                            <th>ItemBill</th>
+                            <th>Bill</th>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                        </tr>
+                        <tbody>
+                        {{#each stuff}}
+                        <tr>
+                            <td>{{this.ib_ID}}</td>
+                            <td>{{this.bill_ID}}</td>
+                            <td>{{this.name}}</td>
+                            <td>{{this.quantity}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </fieldset>
+            </form><br>
+
+
+            <!-- Calculatiions for the Bills -->
+            <form>
+                <fieldset class='fields'>
+                <legend>Item Costs Associated with Bills are Calculated Here</legend>
+                    <table class='tbl'>
+                        <tr>
+                            <th>Bill</th>
+                            <th>Total</th>
+                        </tr>
+                        <tbody>
+                        {{#each calculation}}
+                        <tr>
+                            <td>{{this.bill_ID}}</td>
+                            <td>{{this.TOTAL}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </fieldset>
+            </form><br>
+
+
+            <!-- Update a Bill -->
+            <form>
+                <fieldset class='fields'>
+                <legend>Update Bill By Matching with the Calculated Amount Above:</legend>
+                    <table class='tbl'>
+                        <tr>
+                            <th></th>
+                            <th>Bill</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td><select name='bill_ID' id='updatebill_ID' required>
+                                {{#each array}}
+                                <option value='{{this.bill_ID}}'>{{this.bill_ID}}</option>
+                                {{/each}}
+                            </select></td>
+                            <td><select name='amount' id='updateAmount' required>
+                                {{#each calculation}}
+                                <option value='{{this.TOTAL}}'>{{this.TOTAL}}</option>
+                                {{/each}}
+                            </select></td>
+                        <!--    <td><input type='number' name='amount' id='updateAmount' min='0' step='.01' value='0' class='textfields'></td>  -->
+                            <td><input type='submit' id='updateBill' class='submitButton'></td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </form>
+
+        </section>
+
+
+        <script src="itembills.js"></script>
+    </body>
+</html>

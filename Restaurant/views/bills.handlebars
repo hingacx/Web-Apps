@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="bills.css">
+        <title>Items</title>
+    </head>
+
+    <body>
+        <section id='upperblock'>
+        <h1>Interaction with Billss Here</h1>
+        <p class='headingPara'>Create, Read and Delete Bills</p>
+            <div class='nav'>
+                <p class='navPara'>Navigation</p>
+                <div id='buttonholder'>
+                    <form>
+                        <button type='submit' id='homeButton' formaction='/'>Home</button>
+                        <button type="submit" id="customersButton" formaction='/customers'>Customers</button>
+                        <button type="submit" id="rewardsButton" formaction='/rewards'>Rewards</button>
+                        <button type="submit" id="ordersButton" formaction='/orders'>Orders</button>
+                        <button type="submit" id="billsButton" formaction='/bills'>Bills</button>
+                        <button type="submit" id="itemsButton" formaction='/items'>Items</button>
+                    </form>
+                </div>
+            </div>
+        </section><br>
+
+    
+        <!-- Add a Bill -->
+        <section id='middleblock'>
+        <p class='para'></p>
+        <form action='/bills' method='POST'>
+            <fieldset class='fields'>
+            <legend>Create a New Bill with Initial Amount of $0.00:</legend>
+                <table class='tbl'>
+                    <tr>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><input type='submit' value='Create New Bill' id='addItem' class='submitButton'></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+
+        <!--
+        <div id='middleblock'>
+        <p class='para'>Modify a Bill</p>
+        <form action='/itembills' method='POST'>
+            <fieldset class='fields'>
+            <legend>Create a New Bill:</legend>
+                <p>This Bill: {{example.e1}}</p>
+                <table class='tbl' id = 'itemBillRows'>
+                    <tbody>
+                    <tr>
+                        <th></th>
+                        <th>Bill ID</th>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><input type='text' name='itembill_bill_ID' id='itembill_bill_ID' value='{{example.e1}}' class='textfields'></td>
+                        <td><select name='itembill_item_ID' id='itembill_item_ID'>
+                            {{#each example.items}}
+                            <option value='{{this.item_ID}}'>{{this.name}}</option>
+                            {{/each}}
+                        </select></td>
+                        <td><input type='number' name='itembill_quantity' id='itembill_quantity' min='0' step='1' value='0' class='textfields'></td>
+                        <td><input type='submit' id='addItem' class='submitButton'></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+        -->
+
+
+        <!-- Delete a Bill -->
+        <form>
+            <fieldset class='fields'>
+            <legend>Delete a Bill:</legend>
+                <table class='tbl'>
+                    <tr>
+                        <th></th>
+                        <th>Bill</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><select name='bill_ID' id='deletebill_ID' required>
+                            {{#each list}}
+                            <option value='{{this.bill_ID}}'>{{this.bill_ID}}</option>
+                            {{/each}}
+                            </select></td>
+                        <td><input type='submit' id='deleteBill' class='submitButton'></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+
+        <form>
+            <fieldset class='fields'>
+                <button type="submit" formaction='/itembills'>To ItemBills</button>
+            </fieldset>
+        </form>
+
+        </section>
+
+    <!-- Show Bills -->
+    <section id='bottomblock'>
+    <form>
+        <fieldset class='fields'>
+        <legend>Current Bills are Displayed Here:</legend>
+            <table class='tbl'>
+                <tr>
+                    <th>Bill ID</th>
+                    <th>Amount</th>
+                </tr>
+                <tbody>
+                    {{#each list}}
+                    <tr>
+                        <td>{{this.bill_ID}}</td>
+                        <td>{{this.amount}}</td>    
+                    </tr>
+                    {{/each}}
+            </table>
+        </fieldset>
+    </form><br>
+    </section>
+
+
+    <script src="bills.js"></script>
+    </body>
+</html>

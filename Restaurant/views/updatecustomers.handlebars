@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html id="otherHTML">
+
+<head>
+	<meta charset="utf-8"/>
+	<title>Customers</title>
+	<link rel="stylesheet" type="text/css" href= "customers.css" />
+</head>
+<body>
+    <section id='upperblock'>
+	<h1>Update Customer's Info</h1>
+        <p class='headingPara'></p>
+        <div class='nav'>
+        <p class='navPara'>Navigation</p>
+            <div id='buttonholder'>
+                <form>
+                <button type='submit' id='homeButton' formaction='/'>Home</button>
+                <button type="submit" id="customersButton" formaction='/customers'>Customers</button>
+                <button type="submit" id="rewardsButton" formaction='/rewards'>Rewards</button>
+                <button type="submit" id="ordersButton" formaction='/orders'>Orders</button>
+                <button type="submit" id="billsButton" formaction='/bills'>Bills</button>
+                <button type="submit" id="itemsButton" formaction='/items'>Items</button>
+                </form>
+            </div>
+        </div>
+    </section><br>
+
+    <!-- Update a Customer-->
+    <section id='middleblock'>
+    <p class='para'></p>
+    <form>
+        <fieldset class='fields'>
+        <legend>Update a Customer's Info:</legend>
+            <table class='tbl'>
+                <tr>
+                    <th></th>
+                    <th>Customer</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>
+                <tr>
+                    <th></td>
+                    <td><input type='hidden' name='customer_ID' value='{{list.customer_ID}}' id='updatecustomer_ID'>{{list.first_name}} {{list.last_name}}</td>
+                    <td><input type='text' name='first_name' value='{{list.first_name}}' id='updateFname' size='30' maxlength='100' class='textfields' required></td>
+                    <td><input type='text' name='last_name' value='{{list.last_name}}' id='updateLname' size='30' maxlength='100' class='textfields' required></td>
+                    <td><input type='email' name='email' value='{{list.email}}' id='updateEmail' maxlength="100" class='textfields' required></td>
+                    <td><input type='submit' id='updateCustomer' class='submitButton'></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+    <form>
+        <fieldset class='fields'>
+            <button type='submit' formaction='/customers'>Back to Customers</button>
+        </fieldset>
+    </form>
+
+
+    </section>
+
+
+    <script src="updatecustomers.js"></script>
+</body>
+</html>

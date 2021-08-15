@@ -1,0 +1,188 @@
+:root{--colorLightest: #f0e3ca;
+    --colorMedlight: #ff8303;
+    --colorMedDark: #a35709;
+    --colorDarkest: #1b1a17;
+    --mainFont: "Helvetica"}
+
+body {
+    background-color: var(--colorLightest);
+}
+#upperblock {
+    background-color: var(--colorMedlight);
+    font-family: var(--mainFont);
+    padding-top: 1%;
+    color: var(--colorDarkest);
+}
+#upperblock p{
+    font-size: 150%;
+}
+#middleblock{
+
+    font-family: var(--mainFont);
+    font-size: 110%;
+}
+#middleblock select{
+    color: var(--colorDarkest);
+    font-size: 110%;
+    width: 150px;
+}
+
+#middleblock .textfields{
+    color: var(--colorDarkest);
+    font-size: 110%;
+    height: 20px;
+    width: 150px;
+}
+#middleblock #changeEmail{
+    width: 200px;
+}
+#middleblock td{
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+#addQuantity{
+    height: 20px;
+    font-size: 110%;
+    background-color: var(--colorLightest);
+}
+#assignNum{
+    height: 20px;
+    font-size: 110%;
+    background-color: var(--colorLightest);
+}
+
+#bottomblock{
+    background-color: var(--colorMedlight);
+    font-family: var(--mainFont);
+    font-size: 110%;
+}
+#bottomblock .submitButton{
+    color: var(--colorDarkest);
+    background-color: var(--colorMedDark);
+}
+#bottomblock select{
+    color: var(--colorDarkest);
+    background-color: var(--colorLightest);
+    font-size: 110%;
+}
+
+#nav
+{
+    text-align: center;
+    background-color: var(--colorDarkest);
+    font-family: var(--mainFont);
+    padding-top: 0.5%;
+    color: var(--colorMedlight);
+}
+
+#buttonholder {
+    padding-bottom: 1%;
+}
+button{
+    color: var(--colorLightest);
+    background-color: var(--colorMedDark);
+    font-size: 150%;
+
+}
+.submitButton{
+    color: var(--colorDarkest);
+    background-color: var(--colorMedlight);
+    font-size: 150%;
+    
+}
+h1 {
+    text-align: center;
+}
+
+#p2 {
+    text-align: center;
+}
+
+.fields {
+    margin: auto;
+    margin-bottom: 2%;
+    border: solid;
+    border-radius: 20px;
+    width: 30%;
+}
+
+.tbl {
+    padding: 5px;
+}
+
+#nav {
+    text-align: center;
+}
+
+#p1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.item {
+    padding-right: 5px;
+}
+
+.order {
+    padding-right: 5px;
+}
+
+.orderID {
+    margin-left: 20%;
+}
+
+.custID {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+}
+
+.crID {
+    margin-left: 15%;
+    width: 80%;
+}
+
+#bill {
+    margin-left: 10%;
+    width: 80%;
+}
+
+ul {
+    margin-left: 44%;
+    width: 200px;
+    border: solid;
+    border-color: rgb(86, 95, 87);
+    border-radius: 15px;
+  }
+  
+  li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #555;
+    color: white;
+  }
+
+  .para {
+    display: flex;
+    flex-direction: row;
+}
+
+.para:before,
+.para:after {
+    content: "";
+    flex: 1 1;
+    border-bottom: 2px solid #000;
+    margin: auto;
+}
+
+ul.directory{
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    /*margin: 0; /* Remove margins */
+}

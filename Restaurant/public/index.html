@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html id='otherHTML'>
+
+<head>
+	<meta charset='utf-8'/>
+	<title>Customer Rewards Database</title>
+	<link rel='stylesheet' type='text/css' href= 'index.css' />
+</head>
+<body>
+		<div id='description'>
+			<h1>Welcome to our project</h1>
+			<h3>Directory:</h3>
+		</div>
+
+		<form>
+			<div class='menubar'>
+				<div class='inner'><button type='submit' id='customersButton' formaction='/customers'>Customers</button></div>
+				<div class='inner'><button type='submit' id='customersButton' formaction='/rewards'>Rewards</button></div>
+				<div class='inner'><button type='submit' id='itemsButton' formaction='/items'>Items</button></div>
+				<div class='inner'><button type='submit' id='ordersButton' formaction='/orders'>Orders</button></div>
+				<div class='inner'><button type='submit' id='billsButton' formaction='/bills'>Bills</button></div>
+			</div>
+		</form>
+
+		<div id='workflow'>
+			Our application workflow is essentially this.
+			<ul>
+				<li>Create an Instance of a Reward</li>
+				<li>Create an Instance of a Customer where having a Reward is optional</li>
+				<li>Create an Instance of a Item</li>
+				<li>Create an Instance of a Bill</li>
+				<li>Create an Instance of a ItemBill so that the Bill amount can be updated</li>
+				<li>Create an Order by including a Customer and Bill</li>
+			</ul>
+		</div>
+	
+</body>
+</html>
+
+
+

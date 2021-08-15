@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="bills.css">
+        <title>Items</title>
+    </head>
+
+    <body>
+        <section id='upperblock'>
+        <h1>Control Restaurant Bills.</h1>
+            <div class='nav'>
+                <p class='navPara'>Navigation</p>
+                <div id='buttonholder'>
+                    <form>
+                    <button type="submit" id="rewardsButton" formaction='/rewards'>Rewards</button>
+                    <button type="submit" id="customersButton" formaction='/customers'>Customers</button>
+                    <button type="submit" id="ordersButton" formaction='/orders'>Orders</button>
+                    <button type="submit" id="itemsButton" formaction='/items'>Items</button>
+                    <button type='submit' id='homeButton' formaction='/'>Home</button>
+                    </form>
+                </div>
+            </div>
+        </section><br>
+
+    
+        <!-- Add a Bill -->
+        <div id='middleblock'>
+        <p class='para'>Modify a Bill</p>
+        <form action='/itembills' method='POST'>
+            <fieldset class='fields'>
+            <legend>Create a New Bill:</legend>
+                <p>This Bill: {{example.e1}}</p>
+                <table class='tbl' id = 'itemBillRows'>
+                    <tbody>
+                    <tr>
+                        <th></th>
+                        <th>Bill ID</th>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><input type='text' name='itembill_bill_ID' id='itembill_bill_ID' value='{{example.e1}}' class='textfields'></td>
+                        <!-- Loop to display each item name from 'items', sent to handlebars template as 'example.items'-->
+                        <td><select name='itembill_item_ID' id='itembill_item_ID'>
+                            {{#each example.items}}
+                            <option value='{{this.item_ID}}'>{{this.name}}</option>
+                            {{/each}}
+                        </select></td>
+                        <td><input type='number' name='itembill_quantity' id='itembill_quantity' min='0' step='1' value='0' class='textfields'></td>
+                        <td><input type='submit' id='addItem' class='submitButton'></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+
+
+        <!-- Update a Bill -->
+        <form>
+            <fieldset class='fields'>
+            <legend>Update Bill:</legend>
+                <table class='tbl'>
+                    <tr>
+                        <th></th>
+                        <th>Bill</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><select ='bill_ID' id='updatebill_ID' required>
+                            {{#each example.bills}}
+                            <option value='{{this.bill_ID}}'>{{this.bill_ID}}</option>
+                            {{/each}}
+                          </select></td>
+                        <td><input type='number' name='amount' id='updateAmount' min='0' step='.01' value='0' class='textfields'></td>
+                        <td><input type='submit' id='updateBill' class='submitButton'></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+
+
+        <!-- Delete a Bill -->
+        <form>
+            <fieldset class='fields'>
+            <legend>Delete an Item:</legend>
+                <table class='tbl'>
+                    <tr>
+                        <th></th>
+                        <th>Bill</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><select name='bill_ID' id='deletebill_ID' required>
+                            {{#each example.bills}}
+                            <option value='{{this.bill_ID}}'>{{this.bill_ID}}</option>
+                            {{/each}}
+                            </select></td>
+                        <td><input type='submit' id='deleteBill' class='submitButton'></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form><br>
+    </div>
+
+
+    <!-- Show Bills -->
+    <section id='bottomblock'>
+    <form>
+        <fieldset class='fields'>
+        <legend>Show Bills:</legend>
+            <table class='tbl'>
+                <tr>
+                    <th>Bill ID</th>
+                    <th>Amount</th>
+                </tr>
+                <tbody>
+                {{#each example.bills}}
+                <tr>
+                    <td>{{this.bill_ID}}</td>
+                    <td>{{this.amount}}</td>
+                </tr>
+                {{/each}}
+            </table>
+            <input type='submit' id='showCustomers' value='Display Bills' class='submitButton' formaction='/showbills'>
+        </fieldset>
+    </form><br>
+    </section>
+
+    <script src="bills.js"></script>
+    </body>
+</html>

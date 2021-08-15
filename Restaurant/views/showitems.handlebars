@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="items.css">
+        <title>Items</title>
+    </head>
+
+    <body>
+        <section id='upperblock'>
+        <h1>Changes to the restaurant menu occur here.</h1>
+            <div class='nav'>
+                <p class='navPara'>Navigation</p>
+                <div id='buttonholder'>
+                    <form>
+                    <button type="submit" id="rewardsButton" formaction='/rewards'>Rewards</button>
+                    <button type="submit" id="customersButton" formaction='/customers'>Customers</button>
+                    <button type="submit" id="ordersButton" formaction='/orders'>Orders</button>
+                    <button type="submit" id="billsButton" formaction='/bills'>Bills</button>
+                    <button type='submit' id='homeButton' formaction='/'>Home</button>
+                    </form>
+                </div>
+            </div>
+        </section><br>
+
+    
+        <!-- Add a Item -->
+        <div id='middleblock'>
+        <p class='para'></p>
+        <form action='/items' method='POST'>
+            <fieldset class='fields'>
+            <legend>Create an Item:</legend>
+                <table class='tbl'>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><input type='text' name='name' size='30' maxlength='100' class='textfields'></td>
+                        <td><input type='number' name='price' min='0' step='.01' value='0' class='textfields'></td>
+                        <td><input type='submit' id='addItem' class='submitButton'></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+
+
+        <!-- Update a Item -->
+        <form>
+            <fieldset class='fields'>
+            <legend>Update Price:</legend>
+                <table class='tbl'>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><select ='item_ID' id='updateitem_ID' required>
+                            {{#each list}}
+                            <option value='{{this.item_ID}}'>{{this.name}}</option>
+                            {{/each}}
+                          </select></td>
+                        <td><input type='number' name='price' id='updatePrice' min='0' step='.01' value='0' class='textfields'></td>
+                        <td><input type='submit' id='updateItem' class='submitButton'></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+
+
+        <!-- Delete a Item -->
+        <form>
+            <fieldset class='fields'>
+            <legend>Delete Item:</legend>
+                <table class='tbl'>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><select name='item_ID' id='deleteitem_ID' required>
+                            {{#each list}}
+                            <option value='{{this.item_ID}}'>{{this.name}}</option>
+                            {{/each}}
+                            </select></td>
+                        <td><input type='submit' id='deleteItem' class='submitButton'></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form><br>
+    </div>
+
+
+    <!-- Show current Items -->
+    <section id='bottomblock'>
+        <form>
+            <fieldset class='fields'>
+            <legend>Current Items:</legend>
+                <div>
+                    <input type='radio' id='byNormal' name='itemFilter' value='normal' checked='checked'>
+                    <label for="byNormal">Normal</label>
+                    <input type='radio' id='byPrice' name='itemFilter' value='price'>
+                    <label for="byPrice">Price</label>
+                    <input type='radio' id='byName' name='itemFilter' value='name'>
+                    <label for="byName">Name</label>
+                </div>  
+                <table class='tbl'>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                    <tbody>
+                    {{#each list}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.price}}</td>
+                    </tr>
+                    {{/each}}
+                </table>
+                <input type='submit' id='showItem' value='Display Items' class='submitButton' formaction="/showitems">
+            </fieldset>
+        </form><br>
+    </section>
+
+    <script src="items.js"></script>
+    </body>
+</html>

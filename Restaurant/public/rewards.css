@@ -1,0 +1,124 @@
+:root{--colorLightest: #f0e3ca;
+    --colorMedlight: #ff8303;
+    --colorMedDark: #a35709;
+    --colorDarkest: #1b1a17;
+    --mainFont: "Helvetica"}
+
+body {
+background-color: var(--colorLightest);
+}
+#upperblock {
+background-color: var(--colorMedlight);
+font-family: var(--mainFont);
+padding-top: 1%;
+color: var(--colorDarkest);
+}
+#upperblock p{
+font-size: 150%;
+}
+#middleblock{
+
+font-family: var(--mainFont);
+font-size: 110%;
+}
+#middleblock select{
+color: var(--colorDarkest);
+font-size: 110%;
+width: 200px;
+}
+#middleblock .textfields{
+color: var(--colorDarkest);
+font-size: 110%;
+height: 20px;
+width: 150px;
+}
+#middleblock #changeEmail{
+width: 200px;
+}
+#bottomblock{
+background-color: var(--colorMedlight);
+font-family: var(--mainFont);
+font-size: 110%;
+}
+#bottomblock .submitButton{
+color: var(--colorDarkest);
+background-color: var(--colorMedDark);
+}
+#bottomblock select{
+color: var(--colorDarkest);
+background-color: var(--colorLightest);
+font-size: 110%;
+}
+input.usedCheckBox{
+width: 20px;
+height: 20px;
+}
+
+.nav
+{
+text-align: center;
+background-color: var(--colorDarkest);
+font-family: var(--mainFont);
+padding-top: 0.5%;
+color: var(--colorMedlight);
+}
+
+#buttonholder {
+padding-bottom: 1%;
+}
+
+button{
+color: var(--colorLightest);
+background-color: var(--colorMedDark);
+font-size: 150%;
+
+}
+.submitButton{
+color: var(--colorDarkest);
+background-color: var(--colorMedlight);
+font-size: 150%;
+}
+
+h1 {
+text-align: center;
+}
+
+.headingPara {
+text-align: center;
+}
+
+.navPara {
+font-size: 20px;
+font-weight: bold;
+}
+
+.fields {
+margin: auto;
+margin-bottom: 2%;
+border: solid;
+border-radius: 20px;
+width: 30%;
+}
+
+.tbl {
+padding: 5px;
+}
+
+.para {
+display: flex;
+flex-direction: row;
+}
+
+.para:before,
+.para:after {
+content: "";
+flex: 1 1;
+border-bottom: 2px solid #000;
+margin: auto;
+}
+
+ul.directory{
+list-style-type: none; /* Remove bullets */
+padding: 0; /* Remove padding */
+/*margin: 0; /* Remove margins */
+}
