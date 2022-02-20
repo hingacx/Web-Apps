@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="./js/main.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <section class="section__one">
+      <div class="section__one-container grid grid--cols-3">
+        <div class="grid__cell top5__cell">
+          <p>Top 5 AFC Power Rankings</p>
+          <ol id="AFC_top5"></ol>
+        </div>
+        <div class="grid__cell top5__cell middle_cell">
+          <p>Top 5 NFC Power Rankings</p>
+          <ol id="NFC_top5"></ol>
+        </div>
+        <div class="grid__cell last__cell">
+          <img class="nfl__logo" src="images/nfl_logo.png" alt="NFL Logo" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section__two grid grid--cols-3">
+      <div>          <img class="nfl__logo" src="images/32teams.jpg" alt="32 NFL Teams" /></div>
+      <div class="legend">
+        <p>
+          Select an NFL team from the drop down to display their roster and
+          unique PlayerID
+        </p>
+      </div>
+      <div><div class="time__container"><p id="time"></p></div></div>
+
+    </section>
+
+    <div class="section__three">
+      <label for="nfl_team">Select a Team: </label>
+      <select name="nfl_team" id="nfl_team">
+        <option value="sea">Seahawks</option>
+        <option value="det">Lions</option>
+      </select>
+      <button class="btn" type="button" id="team_search_btn">Search</button>
+      <button class="btn" type="button" id="hide">Hide</button>
+    </div>
+
+    <section class="section__four" id="display_team_container">
+      <table id="display_team"></table>
+    </section>
+
+    <section class="section__five grid grid--cols-2">
+      <div class="team__legend">
+        <ul>
+          <li>Pos: Player's Position</li>
+          <li>Pass TD: Number of Passing Touchdowns Thrown</li>
+          <li>Rush TD: Number of Rushing Touchdowns Ran</li>
+          <li>Sacks: Number of Times Player Sacked QB</li>
+        </ul>
+      </div>
+      <div class="team__legend">
+        <p>
+          <ol>
+            <li>Display NFL players from a team using the dropdown</li>
+            <li>Add a Player to the tracker from a NFL team</li>
+            <li>This keeps track of the Player's unique ID</li>
+            <li>Use ID to to search individual player stats</li>
+          </ol>
+        </p>
+      </div>
+    </section>
+
+    <section class="section__six grid grid--cols-2">
+      <div class="card card__one">
+        <header class="card__header">
+          <label for="player_search">Search Player:</label>
+          <input type="number" id="player_search" min="0" placeholder="0000" />
+          <button class="btn" type="button" id="player_search_btn">
+            Search
+          </button>
+        </header>
+        <div class="card__body">
+          <table id="player_search_tbl">
+            <thead>
+              <tr>
+                <th>Team</th>
+                <th>Name</th>
+                <th>Pos</th>
+                <th>Pass TD</th>
+                <th>Rush TD</th>
+                <th>Sacks</th>
+              </tr>
+            </thead>
+            <tbody id="player_search_display"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card card__two">
+        <header class="card__header">Individual Player Tracker</header>
+        <div class="card__body">
+          <table id="display_players_tbl">
+            <thead>
+              <tr>
+                <th>Player Name</th>
+                <th>Player ID</th>
+              </tr>
+            </thead>
+            <tbody id="display_players"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
