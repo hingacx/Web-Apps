@@ -176,6 +176,15 @@ body {
   text-align: center;
 }
 
+#player_search_tbl {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#player_search_tbl th {
+  text-decoration: underline;
+}
+
 /* Cards */
 
 .card {
@@ -248,4 +257,33 @@ body {
   border: solid 5px black;
   background: white;
   color: var(--color-primary);
+}
+
+/* Tool tips */
+
+.tip__container {
+  position: relative;
+  display: inline-block;
+  color: white;
+  font-size: 1.5rem;
+  background-color: var(--color-primary);
+  border: 2px solid;
+  width: 2rem;
+  border-radius: 25px;
+}
+
+.tip__text {
+  visibility: hidden;
+  width: 300px;
+  padding: 1rem;
+  background-color: lightblue;
+  color: var(--color-primary);
+  text-align: center;
+  border-radius: 30px;
+  position: absolute;
+  z-index: 1;
+}
+
+.tip__container:hover .tip__text {
+  visibility: visible;
 }
