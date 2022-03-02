@@ -278,36 +278,33 @@ function search_player() {
 
 // Displays the player's stats.
 function display_player_stats(nfl_player) {
-  // Making dom elements
-  let row = document.createElement("tr");
-  let team_cell = document.createElement("td");
-  let name_cell = document.createElement("td");
-  let pos_cell = document.createElement("td");
-  let passing_td_cell = document.createElement("td");
-  let rushing_td_cell = document.createElement("td");
-  let sacks_cell = document.createElement("td");
-
   // Adding the data to the elements.
-  team_cell.appendChild(document.createTextNode(nfl_player.Team));
-  name_cell.appendChild(document.createTextNode(nfl_player.Name));
-  pos_cell.appendChild(document.createTextNode(nfl_player.Position));
-  passing_td_cell.appendChild(
-    document.createTextNode(nfl_player.PassingTouchdowns)
-  );
-  rushing_td_cell.appendChild(
-    document.createTextNode(nfl_player.RushingTouchdowns)
-  );
-  sacks_cell.appendChild(document.createTextNode(nfl_player.Sacks));
+  for (let key of Object.keys(tooltips)) {
+    let row = document.createElement("tr");
+    let name_cell = document.createElement("td");
+    let stat_cell = document.createElement("td");
+    let help_cell = document.createElement("td");
 
-  // Adding the dom elements to the HTML page
-  row.appendChild(team_cell);
-  row.appendChild(name_cell);
-  row.appendChild(pos_cell);
-  row.appendChild(passing_td_cell);
-  row.appendChild(rushing_td_cell);
-  row.appendChild(sacks_cell);
+    name_cell.appendChild(document.createTextNode(key));
+    stat_cell.appendChild(document.createTextNode(nfl_player[key]));
 
-  $("#player_search_display").append(row);
+    // Tool tips
+    let tip = document.createElement("span");
+    tip.className = "tip__text";
+    tip.textContent = tooltips[key];
+    let container = document.createElement("div");
+    container.textContent = "?";
+    container.className = "tip__container";
+    container.appendChild(tip);
+    help_cell.className = "tip__cell";
+    help_cell.appendChild(container);
+
+    row.appendChild(name_cell);
+    row.appendChild(stat_cell);
+    row.appendChild(help_cell);
+
+    $("#player_search_display").append(row);
+  }
 }
 
 // Deletes and remakes the player table
@@ -321,6 +318,41 @@ function make_player_table() {
   $("#player_search_tbl").append(new_table);
 }
 
+// Object that holds the different statistical attributes and their descriptions of the stat
+const tooltips = {
+  Name: "The name of the player",
+  Position: "NFL Position of the player",
+  Team: "NFL Team of the player",
+  PassingYards: "Total number of yards thrown for the season",
+  PassingTouchdowns: "Total number of touchdowns thrown for the season",
+  PassingCompletionPercentage:
+    "The percent of how many thrown balls are caught by a receiver",
+  PassingInterceptions:
+    "The number of times a thrown ball was intercepted by the other team",
+  ReceivingTargets: "The number of times a player had a ball thrown to them",
+  ReceivingYardsPerReception:
+    "The average yards gained by a player after catching a thrown ball",
+  ReceivingYards: "Total amount of yards received for the season",
+  ReceivingTouchdowns: "Total amount of touchdowns caught for the season",
+  RushingAttempts: "Total amount of rushing attempts for the season",
+  RushingYards: "Total amount of rushing yards for the season",
+  RushingYardsPerAttempt: "The average yards gained per rushing attempt",
+  RushingTouchdowns: "Total rushing touchdowns for the season",
+  Tackles:
+    "Total amount of times the player tackled opposing players for the season",
+  Sacks:
+    "Total amount of times the player sacked opposing quarterbacks for the season",
+  Safeties:
+    "Total number of times a defensive player tackled an opposing player with the ball in their endzone",
+  FumblesForced: "Total number of times the player forced a fumble",
+  Interceptions:
+    "Total number of times the player caught the ball from the opposing team without touching the ground",
+  FieldGoalsAttempted:
+    "Total number of times the player attempted to kick a fieldgoal",
+  FieldGoalsMade: "Total amount of fieldgoals completed by the player",
+  FieldGoalPercentage: "The percent of how many fieldgoal attempted were made",
+};
+
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  *
  *         END: Section that deals with individual player stats
@@ -333,7 +365,7 @@ function make_player_table() {
  *
  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-// Get's current time
+// Get's current time option 2. Built it if the service connection fails
 function current_time() {
   let date = new Date();
   let the_time = date.toLocaleTimeString();
@@ -342,11 +374,10 @@ function current_time() {
 
 // Update current time in ms
 setInterval(current_time, 1000);
-current_time();
 
 // Testing function, not normal implementation
 function test() {
-  console.log("test!");
+  $("#time").text("HELLO WORLD");
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
