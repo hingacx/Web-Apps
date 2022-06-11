@@ -1,0 +1,58 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50rem;
+}
+
+.container {
+  background-color: steelblue;
+  border-radius: 30px;
+  height: 500px;
+  width: 400px;
+  text-align: center;
+}
+
+.info {
+  background-color: steelblue;
+  border-radius: 30px;
+  height: 80%;
+  width: 90%;
+  text-align: center;
+}
+
+.header {
+  font-weight: 900;
+  margin: 2rem 0;
+}
+
+.btn {
+  border-radius: 50%;
+  border: none;
+  font-weight: bold;
+  height: 40px;
+  width: 80px;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  opacity: 0.6;
+}
+
+.container-body {
+  background-color: wheat;
+  border-radius: 25px;
+  margin: auto;
+  padding-top: 10px;
+  width: 90%;
+  word-wrap: break-word;
+}
+
+.container-sub {
+  background-color: wheat;
+  border-radius: 25px;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 10px 0px;
+  width: 50%;
+}
