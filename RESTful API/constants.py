@@ -1,0 +1,6 @@
+users = "users"
+orders = "orders"
+foods = "foods"
+client_id = "[Client ID goes here]"
+redirect_url = "https://127.0.0.1:8000/oauth2"
+client_secret = "[Client Secret goes here"

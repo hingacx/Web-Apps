@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CS393 Assignment 7</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{url_for('static', filename='scripts.js')}}"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="info">
+      <div class="header">Encrypted JWT!</div>
+      <div class="container-body">{{jwt}}</div>
+      <div class="container-sub">Your User Sub Number: {{sub}}</div>
+      <button id="return" class="btn" value="{{home_page}}">Return</button>
+    </div>
+  </body>
+</html>
