@@ -17,3 +17,4 @@ General Flow
 * In addition, certain variables have been changed for security reasons.
 * These security variables have comments on what the variable should represent.
 * This REST API is designed for backend requests, meaning a utility program such as Postman must be used.
+* Languages used -> Frontend: JavaScript/HTML/CSS, Backend: Python/Flask 
